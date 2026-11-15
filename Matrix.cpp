@@ -88,9 +88,13 @@ bool Matrix::isIdentity() const
 	}
 	for (int i = 0; i < rows; i++)
 	{
-		if (data[i].getSet(i)!=1)
+		for (int j = 0; j < cols; j++)
 		{
-			return false;
+			if (i == j && data[i].getSet(j) != 1)
+				return false;
+
+			if (i != j && data[i].getSet(j) != 0)
+				return false;
 		}
 	}
 	return true;
@@ -136,7 +140,7 @@ bool Matrix::isUpperTriangular() const
 
 bool Matrix::isTriangular() const
 {
-	return (isUpperTriangular() && isLowerTriangular());
+	return (isUpperTriangular() ||  isLowerTriangular());
 }
 
 int Matrix::getRows() const {
@@ -275,17 +279,16 @@ void Matrix::resize(int newRow, int newCol){
 	{
 		temp[i].resize(newCol);
 	}
-
-	for (int i = 0; i < (rows <= newRow ? rows : newRow); i++)
-	{
-		for (int j = 0; j < (cols <= newCol ? cols : newCol); j++)
-		{
-			temp[i].getSet(j) = data[i].getSet(j);
-		}
-	}
 	if (data!=nullptr)
 	{
-	delete[]data;
+		for (int i = 0; i < (rows <= newRow ? rows : newRow); i++)
+		{
+			for (int j = 0; j < (cols <= newCol ? cols : newCol); j++)
+			{
+				temp[i].getSet(j) = data[i].getSet(j);
+			}
+		}
+		delete[]data;
 	}
 	data = temp;
 	rows = newRow;

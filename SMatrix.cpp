@@ -13,9 +13,9 @@ SMatrix::SMatrix(const Matrix & m):SMatrix()
 	}
 	mat.resize(m.getRows(), m.getColumns());
 	order = m.getRows();
-	for (int i = 0; i < m.getRows(); i++)
+	for (int i = 1; i <= order; i++)
 	{
-		for (int j = 0; j < m.getColumns(); j++)
+		for (int j = 1; j <= order; j++)
 		{
 			mat.at(i, j) = m.at(i, j);
 		}

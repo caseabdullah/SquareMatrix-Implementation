@@ -4,8 +4,8 @@
 #include "Matrix.h"
 class SMatrix
 {
-    Matrix mat;
     int order;
+    Matrix mat;
     SMatrix(const Matrix&);
 public:
     SMatrix(int i=0);
