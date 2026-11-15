@@ -1,14 +1,14 @@
-# 🔢 Square Matrix (SMatrix) Using Matrix Class | C++
+# 🔢 Square Matrix Class Using Matrix Class | C++
 
 ### 📌 About the Project
 
-This project implements a **Square Matrix Class (SMatrix) using an existing Matrix Class** in C++, applying Object-Oriented Programming (OOP) concepts and composition.
+This project implements a **Square Matrix Class (SMatrix) using an existing Matrix Class** in C++, applying Object-Oriented Programming (OOP) concepts, particularly composition and code reusability.
 
-The `SMatrix` class acts as a wrapper around the existing `Matrix` class to provide functionality specifically for square matrices.
+The `SMatrix` class acts as a wrapper around the existing `Matrix` class, providing functionality specifically designed for square matrices.
 
-Instead of separately specifying rows and columns, the user can create an N × N matrix by providing a single order value.
+Instead of specifying rows and columns separately, a square matrix is created using a single order parameter (N × N).
 
-The project focuses on code reusability, matrix manipulation, and extending existing functionality without modifying the original `Matrix` class.
+The project reuses existing Matrix operations and extends them to support square matrix-specific functionality without duplicating the original implementation.
 
 ### 🛠️ Technologies & Concepts
 
@@ -19,9 +19,10 @@ The project focuses on code reusability, matrix manipulation, and extending exis
   - Composition (Has-A Relationship)
   - Wrapper Class
   - Code Reusability
-  - Constructors and Copy Constructor
+  - Constructor Overloading
+  - Copy Constructor
+  - Constructor Delegation
   - Destructors
-  - Dynamic Memory Allocation
   - Const Correctness
 
 ### ⚙️ Implemented Features
@@ -31,30 +32,44 @@ The project focuses on code reusability, matrix manipulation, and extending exis
 - Create square matrices using a single order parameter (N × N).
 - Access and modify matrix elements.
 - Display square matrix elements.
-- Resize square matrices by changing their order.
+- Convert an existing square `Matrix` into an `SMatrix`.
+- Extract square submatrices using slicing.
 
 **2. Basic Matrix Operations**
 
 - **Addition:** Adds two square matrices.
 - **Subtraction:** Subtracts one square matrix from another.
 - **Multiplication:** Performs square matrix multiplication.
-- **Transpose:** Swaps rows and columns.
+- **Transpose:** Calculates the transpose of a square matrix.
 
-**3. Code Reusability**
+**3. Matrix Analysis & Properties**
+
+- **Trace:** Calculates the sum of the main diagonal elements.
+- **Anti-Trace:** Calculates the sum of the secondary diagonal elements.
+- **Symmetry Checking:** Checks whether a matrix is symmetric or skew-symmetric.
+- **Equality Checking:** Compares two square matrices.
+- **Identity Checking:** Determines whether a matrix is an identity matrix.
+- **Triangular Checking:** Checks lower, upper, and general triangular matrices.
+- **Minor:** Extracts the minor of a specified element.
+- **Slice:** Extracts a submatrix while maintaining square matrix dimensions.
+
+**4. Code Reusability**
 
 - **Matrix Reuse:** Utilizes the existing `Matrix` class functionality.
-- **Wrapper Class:** Provides a simplified interface for square matrices.
-- **Composition:** Maintains a `Matrix` object inside the `SMatrix` class.
-- **No Modification:** Reuses existing Matrix functionality without changing its original implementation.
+- **Wrapper Class:** Provides a simplified interface specifically for square matrices.
+- **Composition:** Maintains a `Matrix` object as a private data member.
+- **No Duplication:** Reuses existing Matrix operations instead of implementing them again.
+- **Validation:** Ensures that converted and sliced matrices satisfy square matrix requirements.
 
 ### 🧠 Key Learning Outcomes
 
 - Understanding composition through a Matrix object inside the SMatrix class.
 - Implementing wrapper classes in C++.
 - Reusing existing class functionality without modifying its implementation.
-- Understanding code reusability and extensibility.
-- Applying Object-Oriented Programming principles.
-- Practicing dynamic memory management and const correctness.
+- Understanding constructor delegation and copy construction.
+- Applying encapsulation and const correctness.
+- Implementing matrix operations through composition.
+- Practicing object-oriented design and code reusability.
 
 ### 👨‍💻 Developed By
 
