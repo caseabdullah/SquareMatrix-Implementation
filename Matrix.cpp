@@ -283,7 +283,10 @@ void Matrix::resize(int newRow, int newCol){
 			temp[i].getSet(j) = data[i].getSet(j);
 		}
 	}
+	if (data!=nullptr)
+	{
 	delete[]data;
+	}
 	data = temp;
 	rows = newRow;
 	cols = newCol;
@@ -322,7 +325,7 @@ bool Matrix::isSkewSymmetric()  const{
 	return true;
 }
 
-Matrix Matrix::multiply(Matrix& b) const {
+Matrix Matrix::multiply(const Matrix& b) const {
 	if (cols != b.rows) {
 		Matrix empty;
 		return empty;
@@ -332,7 +335,7 @@ Matrix Matrix::multiply(Matrix& b) const {
 	{
 		for (int j = 0; j < multiply.cols; j++)
 		{
-			multiply.data[i][j] = 0;
+			multiply.data[i].getSet(j) = 0;
 			for (int k = 0; k < cols; k++)
 			{
 				multiply.data[i].getSet(j) += data[i].getSet(k) * b.data[k].getSet(j);
@@ -362,7 +365,7 @@ int Matrix::antiTrace() const
 	}int sum = 0;
 	for (int i = 0; i < rows; i++)
 	{
-		sum += data[i][cols - 1 - i];
+		sum += data[i].getSet(cols - 1 - i);
 	}
 	return sum;
 }

@@ -27,7 +27,7 @@ public:
     void resize(int newRow, int newCol);
     bool isSymmetric() const;
     bool isSkewSymmetric() const;
-    Matrix multiply(Matrix& b) const;
+    Matrix multiply(const Matrix& b) const;
     int trace() const;
     int antiTrace() const;
     Matrix slice(int r1, int c1, int r2, int c2) const;
